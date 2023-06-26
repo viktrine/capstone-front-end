@@ -1,0 +1,53 @@
+
+  /* CSS styles for navigation bar */
+  .navbar {
+    background-color:green;
+    overflow: hidden;
+  }
+
+  .navbar a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+  .navbar a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  .navbar b {float: right;
+    ;
+
+  }
+
+  /* CSS styles for sidebar */
+  .sidebar {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 56px; /* Adjust this value to leave space for the navigation bar */
+    left: 0;
+    background-color: #f1f1f1;
+    overflow-x: hidden;
+    padding-top: 20px;
+    margin-top: 56px; /* Add margin to avoid overlapping with navigation bar */
+  }
+
+  .sidebar a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 16px;
+    color: green;
+    display:-moz-inline-box;
+  }
+
+  .sidebar a:hover {
+    background-color: #555;
+    color: white;
+  }
+    
+  /* CSS styles for main content, footer (same as previous example) */
