@@ -1,37 +1,30 @@
 function Sidebar(){
     return(
         <div
-            className="col-xs-6 col-sm-3 sidebar-offcanvas"
+            className="col-xs-4 col-sm-3 sidebar-offcanvas"
             id="sidebar"
             role="navigation"
           >
             <div className="sidebar-nav">
               <ul className="nav">
                 <li className="active">
-                  <a href="#">Link</a>
+                  <a href="#">Events</a>
                 </li>
                 <li>
-                  <a href="#">Link</a>
+                  <a href="#">Parkings</a>
                 </li>
                 <li>
-                  <a href="#">Link</a>
-                </li>
-                <li className="nav-divider"></li>
-                <li>
-                  <a href="#">Link</a>
-                </li>
-                <li>
-                  <a href="#">Link</a>
-                </li>
-                <li>
-                  <a href="#">Link</a>
+                  <a href="#">Guests</a>
                 </li>
                 <li className="nav-divider"></li>
                 <li>
-                  <a href="#">Link</a>
+                  <a href="#">Reports</a>
                 </li>
                 <li>
-                  <a href="#">Link</a>
+                  <a href="#">Users</a>
+                </li>
+                <li>
+                  <a href="#">Profile</a>
                 </li>
               </ul>
             </div>

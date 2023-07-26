@@ -1,15 +1,12 @@
-import logo from "./logo.svg";
-import Card from "./components/Cards";
 import Navbar from "./components/Navbar";
-import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
-import Mainbody from "./components/Mainbody";
+import Home from "./components/Home";
 function App() {
   return (
     <>
       <Navbar />
       <div className="container-fluid">
-        <Mainbody />
+        <Home />
         <hr />
         <Footer />
       </div>

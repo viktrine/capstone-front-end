@@ -1,3 +1,5 @@
+import Sidebar from "./Sidebar";
+
 function Mainbody(){
     return(<div className="row row-offcanvas row-offcanvas-left">
     <Sidebar />
