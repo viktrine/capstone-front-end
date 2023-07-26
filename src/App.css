@@ -1,7 +1,7 @@
-
-  /* CSS styles for navigation bar */
+or navigation bar
   .navbar {
-    background-color:green;
+  background-color: #68bf54;
+  background-color:n;
     overflow: hidden;
   }
 
@@ -9,7 +9,7 @@
     float: left;
     color: #f2f2f2;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
     font-size: 17px;
   }
@@ -22,20 +22,124 @@
 
   }
 
-  /* CSS styles for sidebar */
-  .sidebar {
-    height: 100%;
-    width: 200px;
-    position: fixed;
-    z-index: 1;
-    top: 56px; /* Adjust this value to leave space for the navigation bar */
-    left: 0;
-    background-color: #f1f1f1;
-    overflow-x: hidden;
-    padding-top: 20px;
-    margin-top: 56px; /* Add margin to avoid overlapping with navigation bar */
+/* Wrapper */
+.wrapper {
+  display: flex;
+  height:0vh;
   }
-
+  
+  /* Sidebar */
+  .sidebar {
+  flex: 0 0 200px;
+  background-color: #68bf54;
+  padding: 7px;
+  overflow-y: auto;
+  height: 500px;
+  margin-top:40px;
+  }
+  
+  
+  .sidebar ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  }
+  
+  .sidebar li {
+  margin-bottom: 25px;
+  }
+  
+  .sidebar li a {
+  display: block;
+  padding: 10px;
+  background-color: #e0e0e0;
+  color: #333;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.2s ease-in-out;
+  }
+  
+  .sidebar li a:hover {
+  background-color: #ccc;
+  }
+  
+  /* Main */
+  .main {
+  flex: 1;
+  padding: 20px;
+  }
+  
+  /* Collapse Button */
+  .collapse-btn {
+  display: none;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  background-color: #333;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1;
+  transition: transform 0.2s ease-in-out;
+  }
+  .content{
+    margin-top: 0px;
+  }
+  .collapse-btn:before {
+  content: "\f138";
+  font-family: "FontAwesome";
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1;
+  text-align: center;
+  }
+  
+  .sidebar-collapsed .collapse-btn:before {
+  content: "\f139";
+  }
+  
+  .sidebar-collapsed .sidebar {
+  width: 60px;
+  }
+  
+  .sidebar-collapsed .sidebar h3,
+  .sidebar-collapsed .sidebar ul {
+  display: none;
+  }
+  
+  @media (max-width: 768px) {
+  /* Collapse Button */
+  .collapse-btn {
+  display: block;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+  position: fixed;
+  width: 60px;
+  height:100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 2;
+  transition: width 0.2s ease-in-out;
+  }
+  
+  .sidebar-collapsed .sidebar {
+  width: 200px;
+  }
+  
+  /* Main */
+  .main {
+  margin-left: 60px;
+  }
+  
+  .sidebar-collapsed .main {
+  margin-left: 200px;
+  }
+  }
   .sidebar a {
     padding: 6px 8px 6px 16px;
     text-decoration:none;
@@ -49,5 +153,6 @@
     background-color: #555;
     color: white;
   }
-    
+  
+ 
   /* CSS styles for main content, footer (same as previous example) */
