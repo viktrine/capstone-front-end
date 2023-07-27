@@ -8,14 +8,8 @@ import Users from "./Users";
 import Profile from "./Profile";
 
 function Sidebar() {
-  let [component, setComponent] = useState("notyet");
+  let [component, setComponent] = useState("default");
   
-  const count = useRef(0);
-
-  useEffect(() => {
-    count.current = count.current + 1;
-  }, []);
-
 
   const updateLink = (a, e) => {
     setComponent(a);
@@ -37,9 +31,8 @@ function Sidebar() {
     activeComponent = <Users />;
   } else if (component === "profile") {
     activeComponent = <Profile />;
-  } else {
+  } else if(component === "default") {
     activeComponent = <Home />;
-
   }
 
   return (
