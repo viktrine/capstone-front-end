@@ -51,7 +51,6 @@ function Sidebar() {
       >
         <div className="sidebar-nav">
           <ul className="nav">
-              <p>{count.current}sdsad</p>
             <li className="active">
               <a href="#" onClick={(e) => updateLink("events", e)}>
                 Events
