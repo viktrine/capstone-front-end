@@ -8,7 +8,28 @@ function Events() {
   const [eventlocation, setEventlocation] = useState([]);
 
 
-  
+  // prepare what to display
+  useEffect(() => {
+    let API_URL = "http://localhost:5000/events";
+    let requestPayload = {};
+    let configOptions = {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Headers": "*",
+      "Content-Type": "application/json",
+    };
+
+    // call our backend
+    axios
+      .get(API_URL, requestPayload, configOptions)
+      .then((response) => {
+        setEvents(response.data);
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  }, []);
+
+
 
   const doEffects = () => {
     // prepare what to display
@@ -31,7 +52,26 @@ function Events() {
       });
   }
 
-  doEffects();
+  const deleteEvent = (a, e) => {
+    let API_URL = "http://localhost:5000/events/"+a;
+    let configOptions = {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Headers": "*",
+      "Content-Type": "application/json",
+    };
+
+
+    // call our backend
+    axios
+      .delete(API_URL, {}, configOptions)
+      .then((response) => {
+        doEffects();
+        alert(response.data.responsemessage)
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  }
   const submitForm = (event) => {
     let API_URL = "http://localhost:5000/events";
     let configOptions = {
@@ -63,7 +103,6 @@ function Events() {
       .catch((error) => {
         alert(error);
       });
-      
   }
   // if (act === "views")
 
@@ -101,6 +140,8 @@ function Events() {
               <p>date: {item.date}</p>
               <p>startTime: {item.startTime}</p>
               <p>endTime: {item.endTime}</p>
+              <p className="delete" type="button" onClick={(e) => deleteEvent(item.id, e)}>Delete X</p>
+              <hr />
             </div>
           </>
         ))}
