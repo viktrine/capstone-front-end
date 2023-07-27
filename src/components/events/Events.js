@@ -3,9 +3,12 @@ import { useEffect, useState } from "react";
 
 function Events() {
   const [events, setEvents] = useState([]);
+  const [act, setAct] = useState("view");
+
+  const isView = act === "view" ? true : false;
+
 
   // prepare what to display
-
   useEffect(() => {
     let API_URL = "http://localhost:5000/events";
     let requestPayload = {};
@@ -25,11 +28,12 @@ function Events() {
         alert(error);
       });
   }, []);
+  
+
+  // if (act === "views") 
 
   return (
     <div className="col-xs-12 col-sm-9">
-      <br />
-
       <div className="jumbotron">
         <a href="/" className="visible-xs" data-toggle="offcanvas">
           <i className="fa fa-lg fa-reorder"></i>
@@ -40,7 +44,7 @@ function Events() {
           guests accordingly.
         </p>
         <p>
-          <a className="btn btn-default" href="/">
+          <a className="btn btn-default" onClick={() => setAct("add")} href="/">
             Add New Event ++
           </a>
         </p>

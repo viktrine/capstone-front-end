@@ -1,7 +1,6 @@
 function Profile(){
     return(
       <div className="col-xs-12 col-sm-9">
-        <br />
         <div className="jumbotron">
           <a href="#" className="visible-xs" data-toggle="offcanvas">
             <i className="fa fa-lg fa-reorder"></i>

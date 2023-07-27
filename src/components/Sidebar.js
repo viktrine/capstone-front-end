@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Home from "./Home";
-import Events from "./Events";
+import Events from "./events/Events";
 import Parkings from "./Parkings";
 import Guests from "./Guests";
 import Reports from "./Reports";
