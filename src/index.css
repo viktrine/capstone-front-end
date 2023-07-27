@@ -25,6 +25,14 @@ footer {
   color: red;
 }
 
+.avail{
+color: green;
+}
+
+.book{
+  color: red;
+}
+
 .myform{
   margin-left: 0.2rem;
 }
