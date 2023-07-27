@@ -1,15 +1,17 @@
+import { hasFormSubmit } from "@testing-library/user-event/dist/utils";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
 function Events() {
   const [events, setEvents] = useState([]);
-  const [act, setAct] = useState("view");
+  const [eventname, setEventname] = useState([]);
+  const [eventlocation, setEventlocation] = useState([]);
 
-  const isView = act === "view" ? true : false;
 
+  
 
-  // prepare what to display
-  useEffect(() => {
+  const doEffects = () => {
+    // prepare what to display
     let API_URL = "http://localhost:5000/events";
     let requestPayload = {};
     let configOptions = {
@@ -27,10 +29,43 @@ function Events() {
       .catch((error) => {
         alert(error);
       });
-  }, []);
-  
+  }
 
-  // if (act === "views") 
+  doEffects();
+  const submitForm = (event) => {
+    let API_URL = "http://localhost:5000/events";
+    let configOptions = {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Headers": "*",
+      "Content-Type": "application/json",
+    };
+
+
+    event.preventDefault();
+
+    // prepare payload
+    const requestPayload = { 
+      name: eventname,  
+      location: eventlocation,
+      date: new Date(),
+      startTime: new Date(),
+      endTime: new Date(),
+  }
+
+
+
+    // call our backend
+    axios
+      .post(API_URL, requestPayload, configOptions)
+      .then((response) => {
+        doEffects();
+      })
+      .catch((error) => {
+        alert(error);
+      });
+      
+  }
+  // if (act === "views")
 
   return (
     <div className="col-xs-12 col-sm-9">
@@ -43,16 +78,13 @@ function Events() {
           Hello Collegue, Kindly find details below of todays events to help our
           guests accordingly.
         </p>
-        <p>
-          <a className="btn btn-default" onClick={() => setAct("add")} href="/">
-            Add New Event ++
-          </a>
-        </p>
       </div>
+      
+
       <div className="row">
         {events.map((item) => (
           <>
-            <div key={item.id} className="col-6 col-sm-6 col-lg-3">
+            <div key={item.id} className="col-3 col-sm-3 col-lg-3">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -72,6 +104,37 @@ function Events() {
             </div>
           </>
         ))}
+      </div>
+      <hr />
+
+      <div className="row myform">
+        <form onSubmit={submitForm}>
+          <label>Add new Event</label>
+
+          <div class="row">
+            <div class="col-md-2">
+              <label for="" class="form-label">
+                Event Name
+              </label>
+              <input type="text" class="form-control" name="name" value={eventname}   onChange={(e) => setEventname(e.target.value)} />
+            </div>
+            <div class="col-md-2">
+              <label for="eventlocation" class="form-label">
+                Location
+              </label>
+              <input type="text" class="form-control" name="location" value={eventlocation}   onChange={(e) => setEventlocation(e.target.value)} />
+            </div>
+          </div>
+
+          <div class="row">
+            <br />
+          <div class="col-md-2">
+            <button type="submit" class="btn btn-primary">
+              Save Event
+            </button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   );
