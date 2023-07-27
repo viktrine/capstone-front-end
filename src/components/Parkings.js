@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 
 function Parkings() {
   const [parking, setParking] = useState([]);
-  const [building, setBuilding] = useState([]);
-  const [location, setLocation] = useState([]);
-  const [number, setNumber] = useState([]);
+  const [building, setBuilding] = useState();
+  const [location, setLocation] = useState();
+  const [number, setNumber] = useState();
 
   // define variable
   let availing = <span className="avail">Avail</span>;
@@ -114,6 +114,9 @@ function Parkings() {
       .post(API_URL, requestPayload, configOptions)
       .then((response) => {
         doEffects();
+        setBuilding("");
+        setLocation("");
+        setNumber("");
         alert(response.data.responsemessage);
       })
       .catch((error) => {
@@ -174,7 +177,7 @@ function Parkings() {
             </div>
             <div class="col-md-2">
               <label for="eventlocation" class="form-label">
-                Location
+                Number
               </label>
               <input type="text" class="form-control" name="number" value={number}   onChange={(e) => setNumber(e.target.value)} />
             </div>
@@ -184,7 +187,7 @@ function Parkings() {
             <br />
           <div class="col-md-2">
             <button type="submit" class="btn btn-primary">
-              Save Event
+              Save Parking
             </button>
             </div>
           </div>
