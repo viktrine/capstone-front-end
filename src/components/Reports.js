@@ -1,4 +1,4 @@
-function Home(){
+function Reports(){
     return(
       <div className="col-xs-12 col-sm-9">
         <br />
@@ -6,7 +6,7 @@ function Home(){
           <a href="#" className="visible-xs" data-toggle="offcanvas">
             <i className="fa fa-lg fa-reorder"></i>
           </a>
-          <h1>Guest Portal</h1>
+          <h1>Reports</h1>
           <p>
             Welcome to Safaricom guest portal.Keep count of events and visitors
             who are streaming in.
@@ -53,4 +53,4 @@ function Home(){
       </div>
     );
 }
-export default Home;
+export default Reports;
