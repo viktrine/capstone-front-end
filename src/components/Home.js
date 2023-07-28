@@ -1,67 +1,86 @@
-import Sidebar from "./Sidebar";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 function Home(){
-    return(<div className="row row-offcanvas row-offcanvas-left">
-    <Sidebar />
+  const [events, setEvents] = useState(0);
+  const [guest, setGuest] = useState(0);
+  const [parkings, setParkings] = useState(0);
 
-    <div className="col-xs-12 col-sm-9">
-      <br />
-      <div className="jumbotron">
-        <a href="#" className="visible-xs" data-toggle="offcanvas">
-          <i className="fa fa-lg fa-reorder"></i>
-        </a>
-        <h1>Guest Portal</h1>
-        <p>
-          Welcome to Safaricom guest portal.Keep count of events and visitors who are streaming in.
-        </p>
+  useEffect(()=>{
+    // get events count
+    axios
+      .get("http://localhost:5000/events", {}, {})
+      .then((response) => {
+        setEvents(response.data.length);
+      })
+      .catch((error) => {
+        alert(error);
+      });
+
+      // get available parking count
+      axios
+      .get("http://localhost:5000/parkingslots", {}, {})
+      .then((response) => {
+        setParkings(response.data.length);
+      })
+      .catch((error) => {
+        alert(error);
+      });
+
+      // get checked in guest count
+      axios
+      .get("http://localhost:5000/guests", {}, {})
+      .then((response) => {
+        setGuest(response.data.length);
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  });
+
+
+    return(
+      <div className="col-xs-12 col-sm-9">
+        <div className="jumbotron">
+          <a href="#" className="visible-xs" data-toggle="offcanvas">
+            <i className="fa fa-lg fa-reorder"></i>
+          </a>
+          <h1>Guest Portal</h1>
+          <p>
+            Welcome to Safaricom guest portal.Keep count of events and visitors
+            who are streaming in.
+          </p>
+        </div>
+        <div className="row">
+          <div className="col-6 col-sm-6 col-lg-4">
+            <h4>Current Events</h4>
+            <p>{events}</p>
+            {/* <p>
+              <a className="btn btn-default" href="#">
+                View details »
+              </a>
+            </p> */}
+          </div>
+          <div className="col-6 col-sm-6 col-lg-4">
+            <h4>Available Parkings</h4>
+            <p>{parkings}</p>
+            {/* <p>
+              <a className="btn btn-default" href="#">
+                View details »
+              </a>
+            </p> */}
+          </div>
+          <div className="col-6 col-sm-6 col-lg-4">
+            <h4>Guests Recieved</h4>
+            <p>{guest}</p>
+            {/* <p>
+              <a className="btn btn-default" href="#">
+                View details »
+              </a>
+            </p> */}
+          </div>
+        </div>
       </div>
-      <div className="row">
-        <div className="col-6 col-sm-6 col-lg-3">
-          <h4>Current Events</h4>
-          <p>
-            One
-          </p>
-          <p>
-            <a className="btn btn-default" href="#">
-              View details »
-            </a>
-          </p>
-        </div>
-        <div className="col-6 col-sm-6 col-lg-3">
-          <h4>Available Parkings</h4>
-          <p>
-            Ten.{" "}
-          </p>
-          <p>
-            <a className="btn btn-default" href="#">
-              View details »
-            </a>
-          </p>
-        </div>
-        <div className="col-6 col-sm-6 col-lg-3">
-          <h4>Guests Recieved</h4>
-          <p>
-            Forty
-          </p>
-          <p>
-            <a className="btn btn-default" href="#">
-              View details »
-            </a>
-          </p>
-        </div>
-        <div className="col-6 col-sm-6 col-lg-3">
-          <h4>Feedback</h4>
-          <p>
-            Our guests feedback
-          </p>
-          <p>
-            <a className="btn btn-default" href="#">
-              View details »
-            </a>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>);
+    );
 }
 export default Home;
