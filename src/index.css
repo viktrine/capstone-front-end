@@ -1,13 +1,84 @@
+
+/***/
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding-top: 50px;
+}
+footer {
+  position: absolute;
+  bottom: 0px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.spanner{
+  float: right;
+}
+
+.eventbox{
+  border: 0.1rem solid gray;
+  margin: 0.1rem;
+  /* border-radius: 10%; */
+}
+
+.users{
+  text-align: center;
+}
+
+.useravatar{
+  float: right;
+  text-align: right;
+}
+
+.delete{
+  color: red;
+}
+
+.avail{
+color: green;
+}
+
+.book{
+  color: red;
+}
+
+.myform{
+  margin-left: 0.2rem;
+}
+.card{
+  max-width: 18rem;
+}
+/*
+ * Off Canvas
+ * --------------------------------------------------
+ */
+@media screen and (max-width: 768px) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+    background:#ecf0f1;
+  }
+
+  .row-offcanvas-left
+  .sidebar-offcanvas {
+    left: -40%;
+  }
+
+  .row-offcanvas-left.active {
+    left: 40%;
+  }
+
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+    width: 40%;
+    margin-left: 12px;
+  }
+}
+
+#sidebar {
+    padding:15px;
+    margin-top:10px;
 }
