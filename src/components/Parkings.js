@@ -35,7 +35,7 @@ function Parkings() {
 
 
 
-  const doEffects = () => {
+  const doEffects = async () => {
     // prepare what to display
     let API_URL = "http://localhost:5000/parkingslots";
     let requestPayload = {};
@@ -46,7 +46,7 @@ function Parkings() {
     };
 
     // call our backend
-    axios
+    await axios
       .get(API_URL, requestPayload, configOptions)
       .then((response) => {
         setParking(response.data);

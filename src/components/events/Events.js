@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 
 function Events() {
   const [events, setEvents] = useState([]);
-  const [eventname, setEventname] = useState([]);
-  const [eventlocation, setEventlocation] = useState([]);
+  const [eventname, setEventname] = useState("");
+  const [eventlocation, setEventlocation] = useState("");
 
 
   // prepare what to display
@@ -31,7 +31,7 @@ function Events() {
 
 
 
-  const doEffects = () => {
+  const doEffects =  async() => {
     // prepare what to display
     let API_URL = "http://localhost:5000/events";
     let requestPayload = {};
@@ -42,7 +42,7 @@ function Events() {
     };
 
     // call our backend
-    axios
+    await axios
       .get(API_URL, requestPayload, configOptions)
       .then((response) => {
         setEvents(response.data);
