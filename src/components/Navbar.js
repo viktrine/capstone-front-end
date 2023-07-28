@@ -14,20 +14,14 @@ function Navbar(){
               <span className="icon-bar"></span>
             </button>
             <a className="navbar-brand" href="#">
-              Project name
+              Guest Portal
             </a>
           </div>
           <div className="collapse navbar-collapse">
             <ul className="nav navbar-nav">
-              <li className="active">
+              {/* <li className="active">
                 <a href="#">Home</a>
-              </li>
-              <li>
-                <a href="#about">About</a>
-              </li>
-              <li>
-                <a href="#contact">Contact</a>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

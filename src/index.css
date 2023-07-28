@@ -25,6 +25,11 @@ footer {
   text-align: center;
 }
 
+.useravatar{
+  float: right;
+  text-align: right;
+}
+
 .delete{
   color: red;
 }

@@ -31,6 +31,8 @@ function Sidebar() {
     activeComponent = <Users />;
   } else if (component === "profile") {
     activeComponent = <Profile />;
+  } else if (component === "home") {
+    activeComponent = <Home />;
   } else if(component === "default") {
     activeComponent = <Home />;
   }
@@ -44,6 +46,11 @@ function Sidebar() {
       >
         <div className="sidebar-nav">
           <ul className="nav">
+            <li className="active">
+              <a href="#" onClick={(e) => updateLink("home", e)}>
+                Home
+              </a>
+            </li>
             <li className="active">
               <a href="#" onClick={(e) => updateLink("events", e)}>
                 Events

@@ -1,7 +1,8 @@
 function Footer(){
+    const year = new Date().getFullYear();
     return(
         <footer>
-        <p>© Company 2013</p>
+        <p>© Safaricom {year}</p>
         </footer>
     );
 }
