@@ -61,20 +61,20 @@ function Sidebar() {
             </li>
             <li className="nav-divider"></li>
             <li>
+              <a href="#" onClick={() => updateLink("users")}>
+                System Users
+              </a>
+            </li>
+            {/* <li>
               <a href="#" onClick={() => updateLink("reports")}>
                 Reports
               </a>
-            </li>
-            <li>
-              <a href="#" onClick={() => updateLink("users")}>
-                Users
-              </a>
-            </li>
-            <li>
+            </li> */}
+            {/* <li>
               <a href="#" onClick={() => updateLink("profile")}>
                 Profile
               </a>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>
