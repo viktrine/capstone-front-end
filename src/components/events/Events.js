@@ -117,6 +117,7 @@ function Events() {
           Hello Collegue, Kindly find details below of todays events to help our
           guests accordingly.
         </p>
+        <a href="#addevent">Add Guest</a>
       </div>
       
 
@@ -148,7 +149,7 @@ function Events() {
       </div>
       <hr />
 
-      <div className="row myform">
+      <div className="row myform" id="addevent">
         <form onSubmit={submitForm}>
           <label>Add new Event</label>
 

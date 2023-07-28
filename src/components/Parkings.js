@@ -1,4 +1,3 @@
-import { hasFormSubmit } from "@testing-library/user-event/dist/utils";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -135,6 +134,7 @@ function Parkings() {
         <p>
           One stop check of available parking spaces
         </p>
+        <a href="#addparking">Add Parking</a>
       </div>
       
 
@@ -158,7 +158,7 @@ function Parkings() {
       </div>
       <hr />
 
-      <div className="row myform">
+      <div className="row myform" id="addparking">
         <form onSubmit={submitForm}>
           <label>Add Parking Slot</label>
 

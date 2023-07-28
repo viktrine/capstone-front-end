@@ -21,6 +21,10 @@ footer {
   /* border-radius: 10%; */
 }
 
+.users{
+  text-align: center;
+}
+
 .delete{
   color: red;
 }
